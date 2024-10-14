@@ -3,24 +3,25 @@
 
 ## 1. Set Up Basic Game Structure
 - [x] Simple use input printing
+- [x] Create blank word display function
 - [x] Create main game loop
     - [x] Choosing word
     - [x] Guessing word
     - [x] Fix the pretty printing & the git drama
+
+## 2. Implement Core Game Logic
+- [x] Add user input handling for letter guesses
+- [x] Implement letter checking against chosen word
+- [x] Update display for correct guesses
 - [ ] Implement word selection mechanism in Single Player
   - [ ] Hard-coded word list
   - [ ] Random word selection (optional)
-- [ ] Create blank word display function
-
-## 2. Implement Core Game Logic
-- [ ] Add user input handling for letter guesses
-- [ ] Implement letter checking against chosen word
-- [ ] Update display for correct guesses
 - [ ] Track and limit incorrect guesses
 
 ## 3. Create ASCII Art
 - [ ] Design ASCII art for each hangman state
-- [ ] Implement function to display current hangman state
+- [ ] Adding states machine
+    - [ ] Implement function to display current hangman state
 - [ ] Create victory and game over ASCII displays
 
 ## 4. Enhance User Interface

@@ -10,6 +10,7 @@ fn main() {
     while !game_over {
         let guess = get_guess();
         let slots = update_slots(&chars, guess, &mut slots);
+        pretty_print(&slots);
         game_over = check_game_over(&slots);
     }
     //pretty_print(&slots);
@@ -48,7 +49,8 @@ fn create_slots(word_size: usize) -> Vec<String> {
 }
 
 fn pretty_print(slots: &Vec<String>) {
-    println!("{}", slots.join(" . "))
+    let slots_str = slots.join(" . ");
+    println!("{}", slots_str.green())
 }
 
 fn get_guess() -> char {
@@ -97,7 +99,6 @@ fn update_slots(chars: &Vec<char>, guess: char, slots: &mut Vec<String>) -> Vec<
                 slots[idx] = guess.to_string();
             }
         });
-    println!("{:?}", slots);
     return slots.to_vec()
 }
 
