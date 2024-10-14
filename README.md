@@ -13,21 +13,24 @@
 - [x] Add user input handling for letter guesses
 - [x] Implement letter checking against chosen word
 - [x] Update display for correct guesses
-- [ ] Implement word selection mechanism in Single Player
-  - [ ] Hard-coded word list
-  - [ ] Random word selection (optional)
-- [ ] Track and limit incorrect guesses
+- [x] Track and limit incorrect guesses
 
 ## 3. Create ASCII Art
-- [ ] Design ASCII art for each hangman state
-- [ ] Adding states machine
-    - [ ] Implement function to display current hangman state
-- [ ] Create victory and game over ASCII displays
+- [x] Design ASCII art for each hangman state
+- [x] Adding states machine
+    - [x] Implement function to display current hangman state
+- [x] Create victory and game over ASCII displays
 
 ## 4. Enhance User Interface
+- [ ] A little clean up and pretty printing can be added
 - [ ] Add color with ANSI escape codes 
 - [ ] Implement simple animations (is it possible????)
 - [ ] Add sound effects if supported (is it fucking possiblleleelierje???!)
+
+## 4.5 Single Player
+- [ ] Implement word selection mechanism in Single Player
+  - [ ] Hard-coded word list
+  - [ ] Random word selection (optional)
 
 ## 5. Implement Multiplayer Functionality
 - [ ] Create duel mechanism for multiple players
