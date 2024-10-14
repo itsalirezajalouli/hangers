@@ -24,11 +24,13 @@
 ## 4. Enhance User Interface
 - [x] A little clean up and pretty printing can be added
 - [x] Add color with ANSI escape codes 
-- [ ] Implement simple animations (is it possible????)
-- [ ] Add sound effects if supported (is it fucking possiblleleelierje???!)
+- [ ] later:
+    - [ ] Implement simple animations (is it possible????)
+    - [ ] Add sound effects if supported (is it fucking possiblleleelierje???!)
 
 ## 4.5 Single Player
 - [ ] Implement word selection mechanism in Single Player
+  - [ ] 3 difficulties file for choosing words randomly
   - [ ] Hard-coded word list
   - [ ] Random word selection (optional)
 

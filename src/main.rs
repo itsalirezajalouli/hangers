@@ -1,7 +1,6 @@
 use std::{io, vec};
 use colored::Colorize;
 
-
 fn main() {
     print!("\x1B[2J\x1B[1;1H");
     let mut game_over: bool = false;
@@ -212,9 +211,9 @@ fn state_machine(state: String, state_idx: usize) {
         r#"
     _________
     |/      |
-    |      (_)    Augh! 
+    |      (_)    HAHA! 
     |       |     What a Loser!
-    |      /|\    You Died Horribly!
+    |      /|\    You Died Horribly! and we cheered!
     |      / \
     |
  ___|___\o/\o/\o/\o/
@@ -222,12 +221,12 @@ fn state_machine(state: String, state_idx: usize) {
         r#"
     _________
     |/      
-    |            Horray! 
+    |            Boo! 
     |       O    I guess you live for another day!
     |      \|/
     |       |
     |      / \
- ___|___\o/\o/\o/\o/ 
+ ___|___ o  o  o  o   
     "#,
     ];
     if state == "l" {
