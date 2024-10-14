@@ -3,6 +3,7 @@ use colored::Colorize;
 
 
 fn main() {
+    print!("\x1B[2J\x1B[1;1H");
     let mut game_over: bool = false;
     let word = get_word();
     let chars = make_chars(&word);
@@ -12,19 +13,27 @@ fn main() {
     let mut state = "zero".to_string();
     state_machine(state.clone().into(), state_idx);
     while !game_over {
+        print!("\x1B[2J\x1B[1;1H");
+        let msg = "-> Word has been chosen by player 2".yellow();
+        println!("{}", msg);
+        state_machine(state.clone().into(), state_idx);
         pretty_print(&slots);
         let guess = get_guess();
         (slots, state) = update_slots(&chars, guess, &mut slots);
         if state == "w" {
-            println!("Cool!");
+            let str = "Cool!".to_string().blue();
+            println!("{}", str);
         } else {
             state_idx += 1;
-            println!("Wrong!");
+            let str = "Wrong!".to_string().red();
+            println!("{}", str);
         }
         state_machine(state.clone().into(), state_idx);
         game_over = check_game_over(&slots);
         if state_idx >= 5 {
-            game_over = true
+            game_over = true;
+            print!("\x1B[2J\x1B[1;1H");
+            state_machine(state.clone().into(), state_idx);
         }
     }
     //pretty_print(&slots);
@@ -33,7 +42,15 @@ fn main() {
 fn get_word() -> String {
 
     loop {
-        let title = "-> Multi-player Hangman ONLINE!".green();
+        let title = r#" ___  ___  ________  ________   ________  _______   ________ ________  ___       
+|\  \|\  \|\   __  \|\   ___  \|\   ____\|\  ___ \ |\   __  \\_____  \|\  \      
+\ \  \\\  \ \  \|\  \ \  \\ \  \ \  \___|\ \   __/|\ \  \|\  \|___/  /\ \  \     
+ \ \   __  \ \   __  \ \  \\ \  \ \  \  __\ \  \_|/_\ \   _  _\  /  / /\ \  \    
+  \ \  \ \  \ \  \ \  \ \  \\ \  \ \  \|\  \ \  \_|\ \ \  \\  \|/  /_/__\ \__\   
+   \ \__\ \__\ \__\ \__\ \__\\ \__\ \_______\ \_______\ \__\\ _\\________\|__|   
+    \|__|\|__|\|__|\|__|\|__| \|__|\|_______|\|_______|\|__|\|__\|_______|   ___ 
+                                                                            |\__\
+                                                                            \|__|"#.green();
         let prompt = "-> plz enter a word:".red();
         println!("{}\n{}", title, prompt);
 
@@ -48,8 +65,6 @@ fn get_word() -> String {
             Ok(word) => word,
             Err(_) => continue,
         };
-        let msg = "-> Word has been chosen by player 2".yellow();
-        println!("{}", msg);
         return input;
     }
 
@@ -69,7 +84,6 @@ fn pretty_print(slots: &Vec<String>) {
 }
 
 fn get_guess() -> char {
-
     loop {
         let prompt = "-> Guess a char:".green();
         println!("{}", prompt);
@@ -107,7 +121,7 @@ fn make_chars(word: &String) -> Vec<char> {
 
 fn update_slots(chars: &Vec<char>, guess: char, 
     slots: &mut Vec<String>) -> (Vec<String>, String) {
-    let mut state = "nothing".to_string();
+    let mut state = "l".to_string();
     chars
         .into_iter()
         .enumerate()
@@ -130,6 +144,7 @@ fn check_game_over(slots: &Vec<String>) -> bool {
             }
         });
     if blanks == 0 {
+        print!("\x1B[2J\x1B[1;1H");
         let won_str = "You won bitch!".green();
         let other_str = "The word was".yellow();
         println!("{}", won_str);
@@ -216,9 +231,16 @@ fn state_machine(state: String, state_idx: usize) {
     "#,
     ];
     if state == "l" {
-        println!("{}", state_vec[state_idx]);
+        let state_str = state_vec[state_idx].red();
+        println!("{}", state_str);
         return
-    } 
-    println!("{}", state_vec[state_idx]);
-    return
+    } else if state == "w" {
+        let state_str = state_vec[state_idx].green();
+        println!("{}", state_str);
+        return
+    } else {
+        let state_str = state_vec[state_idx].yellow();
+        println!("{}", state_str);
+        return
+    }
 }

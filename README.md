@@ -22,8 +22,8 @@
 - [x] Create victory and game over ASCII displays
 
 ## 4. Enhance User Interface
-- [ ] A little clean up and pretty printing can be added
-- [ ] Add color with ANSI escape codes 
+- [x] A little clean up and pretty printing can be added
+- [x] Add color with ANSI escape codes 
 - [ ] Implement simple animations (is it possible????)
 - [ ] Add sound effects if supported (is it fucking possiblleleelierje???!)
 
