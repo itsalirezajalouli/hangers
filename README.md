@@ -6,7 +6,7 @@
 - [x] Create main game loop
     - [x] Choosing word
     - [x] Guessing word
-    - [ ] Fix the pretty printing
+    - [x] Fix the pretty printing & the git drama
 - [ ] Implement word selection mechanism in Single Player
   - [ ] Hard-coded word list
   - [ ] Random word selection (optional)

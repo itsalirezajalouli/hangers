@@ -1,5 +1,5 @@
 use std::{io, vec};
-use colored::*;
+use colored::Colorize;
 
 fn main() {
     let mut game_over: bool = false;
@@ -48,7 +48,7 @@ fn create_slots(word_size: usize) -> Vec<String> {
 }
 
 fn pretty_print(slots: &Vec<String>) {
-    println!("{}".red(), slots.join(" . "))
+    println!("{}", slots.join(" . "))
 }
 
 fn get_guess() -> char {
@@ -66,7 +66,8 @@ fn get_guess() -> char {
         let input: char = match input.trim().parse() {
             Ok(word) => word,
             Err(_) => {
-                println!("Only one character bitch!");
+                let str = "Only one character bitch!".to_string().red();
+                println!("{}", str);
                 continue
             }
 
